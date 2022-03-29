@@ -45,7 +45,7 @@ pathwaysH$G1S <- signnature$G1S
 pathwaysH$G2M <- signnature$G2M
 
 pathwaysH <- pathwaysH[sapply(pathwaysH, length) >= 4]
-list.of.sample.Seurat1  <- c("BT333","BT346","BT368","BT389","BT400","BT402","BT409")
+list.of.sample.Seurat1  <- c("BT346","BT400")
 #list.of.sample.Seurat1 <- c("BT324-GSC","BT326-GSC","BT333-GSC")#"BT363-GSC","BT368-GSC"
 
 dimnz<- c(50)

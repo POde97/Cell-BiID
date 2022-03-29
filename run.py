@@ -26,8 +26,8 @@ import scanpy as sc
 
 
 
-adataB = sc.read_h5ad('DataPerPy/SeuratObj/BT333.h5ad')
-adataS = sc.read_h5ad('DataPerPy/SeuratObj/BT368.h5ad')
+adataB = sc.read_h5ad('DataPerPy/SeuratObj/BT346.h5ad')
+adataS = sc.read_h5ad('DataPerPy/SeuratObj/BT400.h5ad')
 
 print(len(list(adataB.obs.index)))
 print(len(list(adataS.obs.index)))
@@ -45,6 +45,16 @@ matrix1 = matrix1.loc[:, matrix1.columns.isin(l1)]
 
 
 resolution = 0.1,0.2,0.3,0.4,0.6,0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4,3.0,4.0 #[2.0,3.0,4.0,5.0]
-GetResol(resolution,matrix1,"BT400"+"-"+"BT346","Leiden",2.0)
+GetResol(resolution,matrix1,"BT400"+"-"+"BT346","Louvain",2.0)
+
+
+
+
+
+
+
+
+
+GetResol(resolution,matrix1,"BT400"+"-"+"BT346","Louvain",2.0)
 
 

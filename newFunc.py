@@ -76,7 +76,7 @@ def GetResol(resolution,matrix1,namefile,Algo,T):
         
         
         
-        if(Algo == "Luvain"):
+        if(Algo == "Louvain"):
             
         #Clustering Total
             biadjacency =  nx.algorithms.bipartite.matrix.biadjacency_matrix(B, row_order = list(matrix1.index), column_order=list(matrix1.columns))
@@ -101,7 +101,7 @@ def GetResol(resolution,matrix1,namefile,Algo,T):
             
             #Sampling 80% of nodes
             H = B.subgraph(list(pd.DataFrame(B.nodes()).sample(frac=0.8)[0])) 
-            if(Algo == "Luvain"):  
+            if(Algo == "Louvain"):  
                 top_nodes = {n for n, d in H.nodes(data=True) if d["bipartite"] == 0}
                 bottom_nodes = set(H) - top_nodes
                 biadjacency_temp =  nx.algorithms.bipartite.matrix.biadjacency_matrix(H, row_order = list(top_nodes),    column_order=list(bottom_nodes))
@@ -170,7 +170,7 @@ def GetResol(resolution,matrix1,namefile,Algo,T):
     
 
 
-def getResol1(namefile,resolution):
+def getResol1(namefile,resolution,Algo):
     
     rng = np.random.default_rng()
     dfSelection = []
@@ -178,8 +178,8 @@ def getResol1(namefile,resolution):
     for res in resolution:
     
     
-        D = pd.read_csv("ReM/Luvain/residualmatrix-"+namefile+"-"+str(res)+".csv",index_col=[0]).to_numpy()
-        df =pd.read_csv("ReM/Luvain/cluster-"+namefile+"-"+str(res)+".csv")[["node","clusterOverall"]].set_index("node")
+        D = pd.read_csv("ReM/"+Algo+"/residualmatrix-"+namefile+"-"+str(res)+".csv",index_col=[0]).to_numpy()
+        df =pd.read_csv("ReM/"+Algo+"/cluster-"+namefile+"-"+str(res)+".csv")[["node","clusterOverall"]].set_index("node")
     
         countV = df["clusterOverall"].value_counts() 
         countV = countV[countV ==1] 

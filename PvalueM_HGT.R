@@ -11,14 +11,11 @@ data("HgProteinCodingGenes")
 dimnz <- c(50)
 prp <- 1
 
-samplez1 <- c("BT322","BT333","BT346","BT368","BT389","BT390","BT400","BT402","BT407","BT409")
-samplez2 <- c("BT324-GSC","BT326-GSC","BT333-GSC","BT363-GSC","BT368-GSC") #-GSC
-samplez3 <- c("BT338","BT363","BT364","BT397") #_1of2 2of2
 
 
 #samplez1Vssamplez1
-list.of.sample.Seurat1 <- samplez2
-list.of.sample.Seurat2 <- list.of.sample.Seurat1
+list.of.sample.Seurat1 <- c("BT346")
+list.of.sample.Seurat2 <- c("BT400")
 
 for( j in 1:length(samplez1)){
   
@@ -36,7 +33,7 @@ for( j in 1:length(samplez1)){
   
   
   
-  list.of.sample.Seurat2 <- list.of.sample.Seurat2[list.of.sample.Seurat2 != list.of.sample.Seurat1[j]]
+  #list.of.sample.Seurat2 <- list.of.sample.Seurat2[list.of.sample.Seurat2 != list.of.sample.Seurat1[j]]
   for( i in 1:length(list.of.sample.Seurat2)){#
     if(list.of.sample.Seurat1[j]!=list.of.sample.Seurat2[i]){
       
